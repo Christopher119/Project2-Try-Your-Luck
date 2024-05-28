@@ -1,0 +1,32 @@
+/*WILDCARD STYLES*/
+* {
+    /*Overwriting browser defaults*/
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+/**********GENERAL STYLES**********/
+
+
+/**********HEADER STYLES**********/
+
+
+/**********MAIN STYLES***********/
+
+
+/**********FOOTER STYLES***********/
+
+
+/**********MEDIA QUERIES**********/
+/*Landscape Phones*/
+@media screen and (min-width: 576px) {}
+
+/*Tablets*/
+@media screen and (min-width: 768px) {}
+
+/*Laptops*/
+@media screen and (min-width: 992px) {}
+
+/*Desktops*/
+@media screen and (min-width: 1200px) {}
