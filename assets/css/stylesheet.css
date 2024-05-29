@@ -7,26 +7,115 @@
 }
 
 /**********GENERAL STYLES**********/
+body {
+    background: url("../images/NightStars.webp") no-repeat center center/cover;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: #000000;
+    height: 100vh;
+}
 
+h1, h3, p {
+    color: #DDDDDD;
+}
 
-/**********HEADER STYLES**********/
+.button-area {
+    width: 80%;
+    margin: 10px auto;
+    padding: 10px;
+    border-radius: 15px;
+    background-color: rgba(134, 134, 212, 0.6);
+}
 
+.history-area {
+    width: 80%;
+    margin: 10px auto;
+    padding: 10px;
+    border-radius: 15px;
+    flex-grow: 1;
+    background-color: rgba(134, 134, 212, 0.6);
+}
 
-/**********MAIN STYLES***********/
+.pull-button {
+    width: 75%;
+    padding: 2rem;
+    margin: 10px;
+    font-size: 2rem;
+    border-radius: 10px;
+    border: 2px solid #000000;
+}
+
+.pull-button:hover {
+    background-color: #000000;
+    color: #FFFFFF;
+}
+
+.reset-button {
+    width: 75%;
+    padding: 1rem;
+    margin: 10px;
+    font-size: 1rem;
+    border-radius: 10px;
+    border: 2px solid #FFFFFF;
+    color: #FFFFFF;
+    background-color: #000000;
+}
+
+.reset-button:hover {
+    background-color: #FFFFFF;
+    color: #000000;
+    border: 2px solid #FF0000;
+}
+
+.normal-result {}
+
+.rare-result {}
+
+.ultra-result {}
 
 
 /**********FOOTER STYLES***********/
-
+ footer {
+    height: 3rem;
+    width: 100%;
+ }
 
 /**********MEDIA QUERIES**********/
 /*Landscape Phones*/
-@media screen and (min-width: 576px) {}
+@media screen and (min-width: 576px) {
+    body {
+        height: 110vh;
+    }
+
+    .pull-button {
+        width: 33%;
+        padding: 2rem;
+        margin: 10px;
+        font-size: 2rem;
+    }
+    
+    .reset-button {
+        width: 20%;
+        padding: 1rem;
+        margin: 10px;
+        font-size: 2rem;
+    }
+}
 
 /*Tablets*/
-@media screen and (min-width: 768px) {}
+@media screen and (min-width: 768px) {
+    
+}
 
 /*Laptops*/
-@media screen and (min-width: 992px) {}
+@media screen and (min-width: 992px) {
+    
+}
 
 /*Desktops*/
-@media screen and (min-width: 1200px) {}
+@media screen and (min-width: 1200px) {
+
+    
+}
