@@ -3,14 +3,26 @@
 document.addEventListener("DOMContentLoaded", function(){
     document.getElementById("pull-1-button").addEventListener('click', rollOnce);
     document.getElementById("pull-1-button").addEventListener('click', rollTen);
+    document.getElementById("reset-button").addEventListener('click', resetGame);
 });
 
 function rollOnce() {
     
 }
 
-function rollTen() {}
+//function that calls the rollOnce() function 10 times
+function rollTen() {
+    if(checkHistory() < 10){
+        alert("Less than 10 rolls remaining, please roll x1");
+    }
+    else{
+        for(let i = 0; i < 10; i++){
+            rollOnce();
+        }
+    }
+}
 
+//function to hold the "luck" of each roll
 function calculateLuck() {
     //random number between 1 and 200
     let odds = Math.floor(Math.random() * 200) + 1;
@@ -28,7 +40,14 @@ function calculateLuck() {
     }
 }
 
+//function to push show JS modal of results
+//and add them to the history section
 function displayResults() {}
+
+//function to clear and reset all history
+function resetGame(){
+
+}
 
 //functions to check how many rolls a user has made to give expected rewards
 //or inform them they've made their max of 100
