@@ -17,7 +17,7 @@ function rollOnce() {
         document.getElementById("fullHistory").innerText = 0;
         document.getElementById("rareHistory").innerText = 0;
         document.getElementById("ultraHistory").innerText = 0;
-    }else if(result == "Ultra Rare"){
+    }else if(checkUltraHistory() == 0 || result == "Ultra Rare"){
         //create a new div to hold and assign the correct result
         let resultDiv = document.createElement("div");
         resultDiv.setAttribute("class", "ultra-result");
@@ -25,7 +25,7 @@ function rollOnce() {
         document.getElementById("result-area").appendChild(resultDiv);
         //reset ultra history for logic
         document.getElementById("ultraHistory").innerText = 100;
-    }else if(result == "Rare"){
+    }else if(checkRareHistory() == 0 || result == "Rare"){
         //create a new div to hold and assign the correct result
         let resultDiv = document.createElement("div");
         resultDiv.setAttribute("class", "rare-result");
@@ -64,9 +64,9 @@ function calculateLuck() {
     let odds = Math.floor(Math.random() * 200) + 1;
     let result;
 
-    if(odds <=150){
+    if(odds <=175){
         result = "Normal";
-    } else if(odds > 151 && odds <= 198){
+    } else if(odds > 176 && odds <= 198){
         result = "Rare";
     } else if(odds > 198){
         result = "Ultra Rare";
