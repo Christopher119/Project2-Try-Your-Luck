@@ -9,12 +9,13 @@
 /**********GENERAL STYLES**********/
 body {
     background: url("../images/NightStars.webp") no-repeat center center/cover;
+    background-attachment: fixed;
     text-align: center;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    /*justify-content: center;*/
     background-color: #000000;
-    height: 100vh;
+    min-height: 100vh;
 }
 
 h1, h3, h4, p {
@@ -71,33 +72,28 @@ h1, h3, h4, p {
     border: 2px solid #FF0000;
 }
 
-.normal-result {
-    width: 30px;
-    height: 30px;
+.normal-result,
+.rare-result,
+.ultra-result {
+    width: 37px;
+    height: 37px;
     margin: 5px;
-    background-color: green;
     border: 1px solid #FFFFFF;
     display: inline-block;
+}
+
+.normal-result {
+    background-color: green;
 }
 
 .rare-result {
-    width: 30px;
-    height: 30px;
-    margin: 5px;
     background-color: rgb(128, 0, 128);
     box-shadow: rgba(128, 0, 128, 0.8) 0 0 5px 5px;
-    border: 1px solid #FFFFFF;
-    display: inline-block;
 }
 
 .ultra-result {
-    width: 30px;
-    height: 30px;
-    margin: 5px;
     background-color: rgba(255, 215, 0);
     box-shadow: rgb(255, 215, 0, 0.8) 0 0 5px 5px;
-    border: 1px solid #FFFFFF;
-    display: inline-block;
 }
 
 
@@ -105,15 +101,23 @@ h1, h3, h4, p {
  footer {
     height: 3rem;
     width: 100%;
+    margin-top: auto;
  }
 
 /**********MEDIA QUERIES**********/
 /*Landscape Phones*/
 @media screen and (min-width: 576px) {
-    body {
-        height: 110vh;
-    }
 
+    .normal-result,
+    .rare-result,
+    .ultra-result {
+        width: 33px;
+        height: 33px;
+        margin: 5px;
+        border: 1px solid #FFFFFF;
+        display: inline-block;
+    }
+    
     .pull-button {
         width: 33%;
         padding: 2rem;
@@ -131,16 +135,40 @@ h1, h3, h4, p {
 
 /*Tablets*/
 @media screen and (min-width: 768px) {
-    
+    .normal-result,
+    .rare-result,
+    .ultra-result {
+        width: 35px;
+        height: 35px;
+        margin: 10px;
+        border: 1px solid #FFFFFF;
+        display: inline-block;
+    }
 }
 
 /*Laptops*/
 @media screen and (min-width: 992px) {
-    
+    .normal-result,
+    .rare-result,
+    .ultra-result {
+        width: 55px;
+        height: 55px;
+        margin: 10px;
+        border: 1px solid #FFFFFF;
+        display: inline-block;
+    }
 }
 
 /*Desktops*/
 @media screen and (min-width: 1200px) {
-
+    .normal-result,
+    .rare-result,
+    .ultra-result {
+        width: 60px;
+        height: 60px;
+        margin: 15px;
+        border: 1px solid #FFFFFF;
+        display: inline-block;
+    }
     
 }
