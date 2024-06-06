@@ -7,6 +7,11 @@
 }
 
 /**********GENERAL STYLES**********/
+header {
+    background-color: rgba(134, 134, 212, 0.6);
+    padding: 10px;
+}
+
 body {
     background: url("../images/NightStars.webp") no-repeat center center/cover;
     background-attachment: fixed;
@@ -18,7 +23,7 @@ body {
     min-height: 100vh;
 }
 
-h1, h3, h4, p {
+h1, h2, h3, h4, p {
     color: #EEEEEE;
 }
 
@@ -41,10 +46,10 @@ h1, h3, h4, p {
 
 #pull-1-button,
 #pull-10-button {
-    width: 75%;
+    width: 40%;
     padding: 2rem;
     margin: 10px;
-    font-size: 2rem;
+    font-size: 1.5rem;
     border-radius: 10px;
     border: 2px solid #000000;
 }
@@ -101,8 +106,10 @@ h1, h3, h4, p {
  footer {
     height: 3rem;
     width: 100%;
+    padding: 10px;
     margin-top: auto;
- }
+    background-color: rgba(134, 134, 212, 0.6);
+}
 
 /**********MEDIA QUERIES**********/
 /*Landscape Phones*/
@@ -118,11 +125,14 @@ h1, h3, h4, p {
         display: inline-block;
     }
     
-    .pull-button {
-        width: 33%;
+    #pull-1-button,
+    #pull-10-button {
+        width: 45%;
         padding: 2rem;
         margin: 10px;
         font-size: 2rem;
+        border-radius: 10px;
+        border: 2px solid #000000;
     }
     
     .reset-button {

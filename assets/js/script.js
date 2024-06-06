@@ -16,10 +16,7 @@ function rollOnce() {
     decrementHistory('ultra');
 
     if(checkHistory('full') <= 0){
-        alert("You've used all your rolls, please reset and try again!");
-        document.getElementById("fullHistory").innerText = 0;
-        document.getElementById("rareHistory").innerText = 0;
-        document.getElementById("ultraHistory").innerText = 0;
+        noRollsRemaining();
     }else if(checkHistory('ultra') == 0 || result == "Ultra Rare"){
         displayResults('ultra');
         //reset ultra history for logic
@@ -45,10 +42,7 @@ function rollOnce() {
 //function that calls the rollOnce() function 10 times
 function rollTen() {
     if(checkHistory('full') <= 0){
-        alert("You've used all your rolls, please reset and try again!");
-        document.getElementById("fullHistory").innerText = 0;
-        document.getElementById("rareHistory").innerText = 0;
-        document.getElementById("ultraHistory").innerText = 0;
+        noRollsRemaining();
     } else if(checkHistory('full') < 10){
         alert("Less than 10 rolls remaining, please roll x1");
     } else{
@@ -64,6 +58,7 @@ function calculateLuck() {
     let odds = Math.floor(Math.random() * 200) + 1;
     let result;
 
+    //Roughly 1% odds for ultra rare, 10% for rare
     if(odds <=175){
         result = "Normal";
     } else if(odds >= 176 && odds <= 198){
@@ -88,12 +83,27 @@ function displayResults(rollResult) {
     document.getElementById("result-area").appendChild(resultDiv);
 }
 
-//function to clear and reset all history
+//simple function to set all remaining rolls to 0 once the user has
+//rolled 100 times and disable the roll buttons
+function noRollsRemaining(){
+    alert("You've used all your rolls, please reset and try again!");
+    document.getElementById("fullHistory").innerText = 0;
+    document.getElementById("rareHistory").innerText = 0;
+    document.getElementById("ultraHistory").innerText = 0;
+
+    document.getElementById("pull-1-button").disabled = true;
+    document.getElementById("pull-10-button").disabled = true;
+}
+
+//function to clear and reset all history and enable roll buttons
 function resetGame() {
     document.getElementById("result-area").innerHTML = "";
     document.getElementById("fullHistory").innerText = 100;
     document.getElementById("rareHistory").innerText = 10;
     document.getElementById("ultraHistory").innerText = 100;
+
+    document.getElementById("pull-1-button").disabled = false;
+    document.getElementById("pull-10-button").disabled = false;
 }
 
 //function to check how many rolls a user has made to give expected rewards
