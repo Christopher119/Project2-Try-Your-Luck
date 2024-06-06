@@ -12,13 +12,21 @@
     <link rel="stylesheet" href="assets/css/stylesheet.css">
     
     <!--FAVICON-->
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/images/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon/favicon-16x16.png">
+    <link rel="manifest" href="assets/images/favicon/site.webmanifest">
     <!--FONTS-->
-    <!--FONTAWESOME-->
 
 </head>
 <body>
     <header><h1>Try Your Luck</h1></header>
     <main>
+        <!--Dialog box to display pop ups to the user, content will be filled by JS functions-->
+        <dialog>
+            <span><button id="modal-button">Close</button></span>
+        </dialog>
+
         <!--Div to display the interactive area and the rules-->
         <div class="button-area">
             <h3>How lucky can you get in 100 attempts?<br>
@@ -43,9 +51,15 @@
     </main>
 
     <footer>
+        <!--FONTAWESOME-->
         <p>Page created by: Christopher Dunne</p>
+        <a href="https://github.com/Christopher119/" target="_blank" rel="noopener" aria-label="My Github page. Opens in a new tab.">
+            <i class="fa-brands fa-github"></i>
+        </a>
+        
     </footer>
-
+    <!-- Font Awesome Kit -->
+    <script src="https://kit.fontawesome.com/39ce8e2f3d.js" crossorigin="anonymous"></script>
     <script src="assets/js/script.js"></script>
 </body>
 </html>
