@@ -20,16 +20,16 @@ function rollOnce() {
     }else if(checkHistory('ultra') == 0 || result == "Ultra Rare"){
         displayResults('ultra');
         //reset ultra history for logic
-        document.getElementById("ultraHistory").innerText = 100;
+        resetGuarantee('ultra', 100);
         //catch to prevent any issues if an Ultra rare happens to roll at the same time
         //that a rare should roll, guaranteeing the rare on the next roll
-        if(document.getElementById("rareHistory").innerText = 0){
-            document.getElementById("rareHistory").innerText = 1;
+        if(checkHistory('rare') == 0){
+            resetGuarantee('rare', 1);
         }
     }else if(checkHistory('rare') == 0 || result == "Rare"){
         displayResults('rare');
         //reset rare history for logic
-        document.getElementById("rareHistory").innerText = 10;
+        resetGuarantee('rare', 10);
     }else if(result == "Normal"){
         displayResults('normal');
     }else{
@@ -81,6 +81,10 @@ function displayResults(rollResult) {
     resultDiv.setAttribute("class", `${rollResult}-result`);
     //add the div to the results area
     document.getElementById("result-area").appendChild(resultDiv);
+}
+
+function resetGuarantee(historyType, amount){
+    document.getElementById(`${historyType}History`).innerText = amount;
 }
 
 //simple function to set all remaining rolls to 0 once the user has
