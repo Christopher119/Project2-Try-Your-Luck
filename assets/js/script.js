@@ -1,3 +1,6 @@
+//telling JSHint which version of JavaScript to check against
+/* jshint esversion: 11 */
+
 //function to only load in JS content once the webpage is fully loaded
 //as learned in the Love Maths project
 document.addEventListener("DOMContentLoaded", function(){
@@ -9,49 +12,46 @@ document.addEventListener("DOMContentLoaded", function(){
 function rollOnce() {
 
     let result = calculateLuck();
-    decrementRareHistory();
-    decrementUltraHistory();
+    decrementHistory('rare');
+    decrementHistory('ultra');
 
-    if(checkHistory() <= 0){
-        alert("You've used all your rolls, please reset and try again!")
+    if(checkHistory('full') <= 0){
+        alert("You've used all your rolls, please reset and try again!");
         document.getElementById("fullHistory").innerText = 0;
         document.getElementById("rareHistory").innerText = 0;
         document.getElementById("ultraHistory").innerText = 0;
-    }else if(checkUltraHistory() == 0 || result == "Ultra Rare"){
-        //create a new div to hold and assign the correct result
-        let resultDiv = document.createElement("div");
-        resultDiv.setAttribute("class", "ultra-result");
-        //add the div to the results area
-        document.getElementById("result-area").appendChild(resultDiv);
+    }else if(checkHistory('ultra') == 0 || result == "Ultra Rare"){
+        displayResults('ultra');
         //reset ultra history for logic
         document.getElementById("ultraHistory").innerText = 100;
-    }else if(checkRareHistory() == 0 || result == "Rare"){
-        //create a new div to hold and assign the correct result
-        let resultDiv = document.createElement("div");
-        resultDiv.setAttribute("class", "rare-result");
-        //add the div to the results area
-        document.getElementById("result-area").appendChild(resultDiv);
+        //catch to prevent any issues if an Ultra rare happens to roll at the same time
+        //that a rare should roll, guaranteeing the rare on the next roll
+        if(document.getElementById("rareHistory").innerText = 0){
+            document.getElementById("rareHistory").innerText = 1;
+        }
+    }else if(checkHistory('rare') == 0 || result == "Rare"){
+        displayResults('rare');
         //reset rare history for logic
         document.getElementById("rareHistory").innerText = 10;
     }else if(result == "Normal"){
-        //create a new div to hold and assign the correct result
-        let resultDiv = document.createElement("div");
-        resultDiv.setAttribute("class", "normal-result");
-        //add the div to the results area
-        document.getElementById("result-area").appendChild(resultDiv);
+        displayResults('normal');
     }else{
         alert(`error, unknown result: ${result}`);
     }
 
-    decrementHistory();
+    decrementHistory('full');
 }
 
 //function that calls the rollOnce() function 10 times
 function rollTen() {
-    if(checkHistory() < 10){
+    if(checkHistory('full') <= 0){
+        alert("You've used all your rolls, please reset and try again!");
+        document.getElementById("fullHistory").innerText = 0;
+        document.getElementById("rareHistory").innerText = 0;
+        document.getElementById("ultraHistory").innerText = 0;
+    } else if(checkHistory('full') < 10){
         alert("Less than 10 rolls remaining, please roll x1");
-    }
-    else{
+    } else{
         for(let i = 0; i < 10; i++){
             rollOnce();
         }
@@ -66,7 +66,7 @@ function calculateLuck() {
 
     if(odds <=175){
         result = "Normal";
-    } else if(odds > 176 && odds <= 198){
+    } else if(odds >= 176 && odds <= 198){
         result = "Rare";
     } else if(odds > 198){
         result = "Ultra Rare";
@@ -78,9 +78,15 @@ function calculateLuck() {
     return result;
 }
 
-//function to push show JS modal of results
+//function to push show JS dialog with results
 //and add them to the history section
-function displayResults() {}
+function displayResults(rollResult) {
+    //create a new div to hold and assign the correct result
+    let resultDiv = document.createElement("div");
+    resultDiv.setAttribute("class", `${rollResult}-result`);
+    //add the div to the results area
+    document.getElementById("result-area").appendChild(resultDiv);
+}
 
 //function to clear and reset all history
 function resetGame() {
@@ -90,36 +96,16 @@ function resetGame() {
     document.getElementById("ultraHistory").innerText = 100;
 }
 
-//functions to check how many rolls a user has made to give expected rewards
+//function to check how many rolls a user has made to give expected rewards
 //or inform them they've made their max of 100
-function checkHistory() {
-    fullHistory = parseInt(document.getElementById("fullHistory").innerText);
-    return fullHistory;
-}
-
-function checkRareHistory() {
-    rareHistory = parseInt(document.getElementById("rareHistory").innerText);
-    return rareHistory;
-}
-
-function checkUltraHistory() {
-    ultraHistory = parseInt(document.getElementById("ultraHistory").innerText);
-    return ultraHistory;
+function checkHistory(historyType) {
+    let history = parseInt(document.getElementById(`${historyType}History`).innerText);
+    return history;
 }
 
 //functions to update roll counters for giving correct rewards at guartantees
 //and to provide those numbers to the user
-function decrementHistory() {
-    fullHistory = parseInt(document.getElementById("fullHistory").innerText);
-    document.getElementById("fullHistory").innerText = --fullHistory;
+function decrementHistory(historyType) {
+    let history = parseInt(document.getElementById(`${historyType}History`).innerText);
+    document.getElementById(`${historyType}History`).innerText = history > 0 ? --history : 0;
 }
-function decrementRareHistory() {
-    rareHistory = parseInt(document.getElementById("rareHistory").innerText);
-    document.getElementById("rareHistory").innerText = --rareHistory;
-}
-function decrementUltraHistory() {
-    ultraHistory = parseInt(document.getElementById("ultraHistory").innerText);
-    document.getElementById("ultraHistory").innerText = --ultraHistory;
-}
-
-
