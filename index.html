@@ -27,22 +27,29 @@
             <span><button id="modal-button">Close</button></span>
         </dialog>
 
+        <!--Splash Screen div to welcome users and introduce the rules-->
+        <div id="intro-area">
+            <h2>How lucky can you get in 100 attempts?<br>
+            Every 10 rolls guarantees a Rare Drop!<br>
+            You are guaranteed at least 1 Ultra Rare Drop in 100 rolls!</h2>
+            <br>
+            <h3>Normal rolls are Green,<br>Rare rolls are Purple,<br>Ultra Rare rolls are Golden</h3>
+            <button id="start-button">Start Game!</button>
+        </div>
+
         <!--Div to display the interactive area and the rules-->
-        <div class="button-area">
-            <h3>How lucky can you get in 100 attempts?<br>
-            Every 10 rolls guarantees a rare!<br>
-            You are guaranteed at least 1 Ultra Rare in 100 rolls!</h3>
+        <div id="button-area">
             <button id="pull-1-button">Roll x1!</button>
             <button id="pull-10-button">Roll x10!</button>
             <br>
-            <h4>Remaining Rolls: <span id="fullHistory">100</span><br>
+            <h3>Remaining Rolls: <span id="fullHistory">100</span><br>
             Rolls to next guaranteed Rare: <span id="rareHistory">10</span><br>
             Rolls to next guaranteed Ultra Rare: <span id="ultraHistory">100</span><br>
-            (Normal rolls are Green, Rares are Purple, and Ultra Rares are Golden)</h4>
+            (Normal rolls are Green, Rares are Purple, and Ultra Rares are Golden)</h3>
         </div>
         
         <!--Div to contain all the results from the users rolls-->
-        <div class="history-area">
+        <div id="history-area">
             <h2>Your Results!</h2>
             <!--Area will be autofilled with results through JavaScript functions-->
             <div id="result-area"></div>

@@ -7,6 +7,7 @@ document.addEventListener("DOMContentLoaded", function(){
     document.getElementById("pull-1-button").addEventListener('click', rollOnce);
     document.getElementById("pull-10-button").addEventListener('click', rollTen);
     document.getElementById("reset-button").addEventListener('click', resetGame);
+    document.getElementById("start-button").addEventListener('click', startGame);
 });
 
 function rollOnce() {
@@ -97,6 +98,12 @@ function noRollsRemaining(){
 
     document.getElementById("pull-1-button").disabled = true;
     document.getElementById("pull-10-button").disabled = true;
+}
+
+function startGame() {
+    document.getElementById("intro-area").style.display = "none";
+    document.getElementById("button-area").style.display = "block";
+    document.getElementById("history-area").style.display = "block";
 }
 
 //function to clear and reset all history and enable roll buttons

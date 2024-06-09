@@ -35,21 +35,44 @@ h1, h2, h3, h4, p {
     color: #EEEEEE;
 }
 
-.button-area {
+#intro-area {
+    width: 60%;
+    margin: 10px auto;
+    padding: 10px;
+    border-radius: 15px;
+    background-color: rgba(134, 134, 212, 0.6);
+    display: flex;
+    flex-direction: column;
+}
+
+#start-button {
+    width: 40%;
+    padding: 2rem;
+    margin: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 1.5rem;
+    border-radius: 10px;
+    border: 2px solid #000000;
+}
+
+#button-area {
     width: 80%;
     margin: 10px auto;
     padding: 10px;
     border-radius: 15px;
     background-color: rgba(134, 134, 212, 0.6);
+    display: none;
 }
 
-.history-area {
+#history-area {
     width: 80%;
     margin: 10px auto;
     padding: 10px;
     border-radius: 15px;
     flex-grow: 1;
     background-color: rgba(134, 134, 212, 0.6);
+    display: none;
 }
 
 #pull-1-button,
