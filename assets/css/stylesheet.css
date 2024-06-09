@@ -25,6 +25,9 @@ body {
 dialog {
     background-color: rgba(134, 134, 212, 0.6);
     color: #EEEEEE;
+    margin: auto;
+    padding: 10px;
+    border: black solid 5px;
 }
 
 dialog::backdrop {
@@ -56,6 +59,15 @@ the rest of the game is hidden until user starts*/
     margin-top: 10px;
     margin-bottom: 10px;
     font-size: 1.5rem;
+    border-radius: 10px;
+    border: 2px solid #000000;
+}
+
+#popup-button {
+    width: 40%;
+    height: 20%;
+    padding: 10px;
+    margin: auto;
     border-radius: 10px;
     border: 2px solid #000000;
 }

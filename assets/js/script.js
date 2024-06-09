@@ -45,7 +45,16 @@ function rollTen() {
     if(checkHistory('full') <= 0){
         noRollsRemaining();
     } else if(checkHistory('full') < 10){
-        alert("Less than 10 rolls remaining, please roll x1");
+        //using dialog boxes to create modals instead of alerts
+        let popup = document.getElementById("popup");
+        popup.showModal();
+        popup.innerHTML = `<form method="dialog">
+            <h2>Less than 10 rolls remaining!</h2>
+            <p>Please roll x1!</p>
+            <br>
+            <button type="submit" id="popup-button">Okay</button>
+            <br>
+        </form>`;
     } else{
         for(let i = 0; i < 10; i++){
             rollOnce();
@@ -92,6 +101,7 @@ function addResultPic(rollResult){
     //array containing various images for the roll rewards
     let possibleRolls = [];
 
+    //populating the array with "normal" roll result images
     if(rollResult == "normal"){
         possibleRolls = [`url("assets/images/roll-results/${rollResult}/${rollResult}-ring-1.webp")`,
             `url("assets/images/roll-results/${rollResult}/${rollResult}-ring-2.webp")`,
@@ -116,7 +126,8 @@ function addResultPic(rollResult){
             `url("assets/images/roll-results/${rollResult}/${rollResult}-sword-13.webp")`,
             `url("assets/images/roll-results/${rollResult}/${rollResult}-sword-14.webp")`,
         ];
-    }else if(rollResult == "rare"){
+    }//populating the array with "rare" roll result images
+    else if(rollResult == "rare"){
         possibleRolls = [`url("assets/images/roll-results/${rollResult}/${rollResult}-ring-1.webp")`,
         `url("assets/images/roll-results/${rollResult}/${rollResult}-ring-2.webp")`,
         `url("assets/images/roll-results/${rollResult}/${rollResult}-ring-3.webp")`,
@@ -133,7 +144,8 @@ function addResultPic(rollResult){
         `url("assets/images/roll-results/${rollResult}/${rollResult}-sword-8.webp")`,
         `url("assets/images/roll-results/${rollResult}/${rollResult}-sword-9.webp")`,
         ];
-    }else if(rollResult == "ultra"){
+    }//populating the array with "ultra" roll result images
+    else if(rollResult == "ultra"){
         possibleRolls = [`url("assets/images/roll-results/${rollResult}/${rollResult}-ring-1.webp")`,
         `url("assets/images/roll-results/${rollResult}/${rollResult}-ring-2.webp")`,
         `url("assets/images/roll-results/${rollResult}/${rollResult}-ring-3.webp")`,
@@ -141,16 +153,15 @@ function addResultPic(rollResult){
         `url("assets/images/roll-results/${rollResult}/${rollResult}-sword-2.webp")`,
         `url("assets/images/roll-results/${rollResult}/${rollResult}-sword-3.webp")`,
         ];
-    }else{
+    }//catch in the event of a roll error
+    else{
         console.log(`Error: Invalid roll result ${rollResult}`);
         throw(`Error: Invalid roll result ${rollResult}`)
     }
 
     //picking a random image
     let result = Math.floor(Math.random() * possibleRolls.length);
-    console.log(result);
     //returning that random image
-    console.log(possibleRolls[result]);
     return possibleRolls[result];
 }
 
@@ -162,7 +173,17 @@ function resetGuarantee(historyType, amount){
 //simple function to set all remaining rolls to 0 once the user has
 //rolled 100 times and disable the roll buttons
 function noRollsRemaining(){
-    alert("You've used all your rolls, please reset and try again!");
+    //using dialog boxes to create modals instead of alerts
+    let popup = document.getElementById("popup");
+    popup.showModal();
+    popup.innerHTML = `<form method="dialog">
+        <h2>You've used all your rolls!</h2>
+        <p>Please reset and try again!</p>
+        <br>
+        <button type="submit" id="popup-button">Okay</button>
+        <br>
+    </form>`;
+    
     document.getElementById("fullHistory").innerText = 0;
     document.getElementById("rareHistory").innerText = 0;
     document.getElementById("ultraHistory").innerText = 0;
