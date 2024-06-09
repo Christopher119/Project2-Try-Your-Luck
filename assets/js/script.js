@@ -156,7 +156,7 @@ function addResultPic(rollResult){
     }//catch in the event of a roll error
     else{
         console.log(`Error: Invalid roll result ${rollResult}`);
-        throw(`Error: Invalid roll result ${rollResult}`)
+        throw(`Error: Invalid roll result ${rollResult}`);
     }
 
     //picking a random image
