@@ -13,7 +13,7 @@ header {
 }
 
 body {
-    background: url("../images/NightStars.webp") no-repeat center center/cover;
+    background: url("../images/night-stars.webp") no-repeat center center/cover;
     background-attachment: fixed;
     text-align: center;
     display: flex;
@@ -35,6 +35,8 @@ h1, h2, h3, h4, p {
     color: #EEEEEE;
 }
 
+/*Div to act as a splashscreen containing rules for the game
+the rest of the game is hidden until user starts*/
 #intro-area {
     width: 60%;
     margin: 10px auto;
@@ -45,6 +47,8 @@ h1, h2, h3, h4, p {
     flex-direction: column;
 }
 
+/*Button in the above #intro-area, hides div and displays the
+2 divs below*/
 #start-button {
     width: 40%;
     padding: 2rem;
@@ -56,6 +60,7 @@ h1, h2, h3, h4, p {
     border: 2px solid #000000;
 }
 
+/*Div containing buttons and remaining rolls left to user*/
 #button-area {
     width: 80%;
     margin: 10px auto;
@@ -65,6 +70,7 @@ h1, h2, h3, h4, p {
     display: none;
 }
 
+/*Div containing users rolls and rest button*/
 #history-area {
     width: 80%;
     margin: 10px auto;
@@ -75,6 +81,7 @@ h1, h2, h3, h4, p {
     display: none;
 }
 
+/*Buttons used to roll in the game*/
 #pull-1-button,
 #pull-10-button {
     width: 40%;
@@ -85,12 +92,15 @@ h1, h2, h3, h4, p {
     border: 2px solid #000000;
 }
 
+/*Hover styling for above buttons*/
 #pull-1-button:hover,
-#pull-10-button:hover {
+#pull-10-button:hover,
+#start-button:hover {
     background-color: #000000;
     color: #FFFFFF;
 }
 
+/*Inverse style button to reset progress of the game*/
 #reset-button {
     width: 75%;
     padding: 1rem;
@@ -102,12 +112,14 @@ h1, h2, h3, h4, p {
     background-color: #000000;
 }
 
+/*Hover styling for above button*/
 #reset-button:hover {
     background-color: #FFFFFF;
     color: #000000;
     border: 2px solid #FF0000;
 }
 
+/*Size and shape of all results*/
 .normal-result,
 .rare-result,
 .ultra-result {
@@ -118,20 +130,23 @@ h1, h2, h3, h4, p {
     display: inline-block;
 }
 
+/*Colour for Normal Rolls*/
 .normal-result {
-    background-color: green;
+    background-color: rgba(0, 128, 0);
+    box-shadow: rgba(0, 128, 0, 0.8) 0 0 5px 5px;
 }
 
+/*Colour and Glow for Rare Rolls*/
 .rare-result {
     background-color: rgb(128, 0, 128);
-    box-shadow: rgba(128, 0, 128, 0.8) 0 0 5px 5px;
+    box-shadow: rgba(128, 0, 128, 0.8) 0 0 15px 15px;
 }
 
+/*Colour and Glow for Ultra Rare Rolls*/
 .ultra-result {
     background-color: rgba(255, 215, 0);
-    box-shadow: rgb(255, 215, 0, 0.8) 0 0 5px 5px;
+    box-shadow: rgb(255, 215, 0, 0.8) 0 0 25px 25px;
 }
-
 
 /**********FOOTER STYLES***********/
 footer {

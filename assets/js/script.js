@@ -80,10 +80,81 @@ function displayResults(rollResult) {
     //create a new div to hold and assign the correct result
     let resultDiv = document.createElement("div");
     resultDiv.setAttribute("class", `${rollResult}-result`);
+
+    resultDiv.setAttribute("id", `${rollResult}`);
+    resultDiv.style.background = addResultPic(rollResult);
+
     //add the div to the results area
     document.getElementById("result-area").appendChild(resultDiv);
 }
 
+function addResultPic(rollResult){
+    //array containing various images for the roll rewards
+    let possibleRolls = [];
+
+    if(rollResult == "normal"){
+        possibleRolls = [`url("assets/images/roll-results/${rollResult}/${rollResult}-ring-1.webp")`,
+            `url("assets/images/roll-results/${rollResult}/${rollResult}-ring-2.webp")`,
+            `url("assets/images/roll-results/${rollResult}/${rollResult}-ring-3.webp")`,
+            `url("assets/images/roll-results/${rollResult}/${rollResult}-ring-4.webp")`,
+            `url("assets/images/roll-results/${rollResult}/${rollResult}-ring-5.webp")`,
+            `url("assets/images/roll-results/${rollResult}/${rollResult}-ring-6.webp")`,
+            `url("assets/images/roll-results/${rollResult}/${rollResult}-ring-7.webp")`,
+            `url("assets/images/roll-results/${rollResult}/${rollResult}-ring-8.webp")`,
+            `url("assets/images/roll-results/${rollResult}/${rollResult}-sword-1.webp")`,
+            `url("assets/images/roll-results/${rollResult}/${rollResult}-sword-2.webp")`,
+            `url("assets/images/roll-results/${rollResult}/${rollResult}-sword-3.webp")`,
+            `url("assets/images/roll-results/${rollResult}/${rollResult}-sword-4.webp")`,
+            `url("assets/images/roll-results/${rollResult}/${rollResult}-sword-5.webp")`,
+            `url("assets/images/roll-results/${rollResult}/${rollResult}-sword-6.webp")`,
+            `url("assets/images/roll-results/${rollResult}/${rollResult}-sword-7.webp")`,
+            `url("assets/images/roll-results/${rollResult}/${rollResult}-sword-8.webp")`,
+            `url("assets/images/roll-results/${rollResult}/${rollResult}-sword-9.webp")`,
+            `url("assets/images/roll-results/${rollResult}/${rollResult}-sword-10.webp")`,
+            `url("assets/images/roll-results/${rollResult}/${rollResult}-sword-11.webp")`,
+            `url("assets/images/roll-results/${rollResult}/${rollResult}-sword-12.webp")`,
+            `url("assets/images/roll-results/${rollResult}/${rollResult}-sword-13.webp")`,
+            `url("assets/images/roll-results/${rollResult}/${rollResult}-sword-14.webp")`,
+        ];
+    }else if(rollResult == "rare"){
+        possibleRolls = [`url("assets/images/roll-results/${rollResult}/${rollResult}-ring-1.webp")`,
+        `url("assets/images/roll-results/${rollResult}/${rollResult}-ring-2.webp")`,
+        `url("assets/images/roll-results/${rollResult}/${rollResult}-ring-3.webp")`,
+        `url("assets/images/roll-results/${rollResult}/${rollResult}-ring-4.webp")`,
+        `url("assets/images/roll-results/${rollResult}/${rollResult}-ring-5.webp")`,
+        `url("assets/images/roll-results/${rollResult}/${rollResult}-ring-6.webp")`,
+        `url("assets/images/roll-results/${rollResult}/${rollResult}-sword-1.webp")`,
+        `url("assets/images/roll-results/${rollResult}/${rollResult}-sword-2.webp")`,
+        `url("assets/images/roll-results/${rollResult}/${rollResult}-sword-3.webp")`,
+        `url("assets/images/roll-results/${rollResult}/${rollResult}-sword-4.webp")`,
+        `url("assets/images/roll-results/${rollResult}/${rollResult}-sword-5.webp")`,
+        `url("assets/images/roll-results/${rollResult}/${rollResult}-sword-6.webp")`,
+        `url("assets/images/roll-results/${rollResult}/${rollResult}-sword-7.webp")`,
+        `url("assets/images/roll-results/${rollResult}/${rollResult}-sword-8.webp")`,
+        `url("assets/images/roll-results/${rollResult}/${rollResult}-sword-9.webp")`,
+        ];
+    }else if(rollResult == "ultra"){
+        possibleRolls = [`url("assets/images/roll-results/${rollResult}/${rollResult}-ring-1.webp")`,
+        `url("assets/images/roll-results/${rollResult}/${rollResult}-ring-2.webp")`,
+        `url("assets/images/roll-results/${rollResult}/${rollResult}-ring-3.webp")`,
+        `url("assets/images/roll-results/${rollResult}/${rollResult}-sword-1.webp")`,
+        `url("assets/images/roll-results/${rollResult}/${rollResult}-sword-2.webp")`,
+        `url("assets/images/roll-results/${rollResult}/${rollResult}-sword-3.webp")`,
+        ];
+    }else{
+        console.log(`Error: Invalid roll result ${rollResult}`);
+        throw(`Error: Invalid roll result ${rollResult}`)
+    }
+
+    //picking a random image
+    let result = Math.floor(Math.random() * possibleRolls.length);
+    console.log(result);
+    //returning that random image
+    console.log(possibleRolls[result]);
+    return possibleRolls[result];
+}
+
+//function to reset rare or ultra guarantee amounts after rolling one
 function resetGuarantee(historyType, amount){
     document.getElementById(`${historyType}History`).innerText = amount;
 }
@@ -100,6 +171,7 @@ function noRollsRemaining(){
     document.getElementById("pull-10-button").disabled = true;
 }
 
+//function to hide intro div and display the two divs for the game area
 function startGame() {
     document.getElementById("intro-area").style.display = "none";
     document.getElementById("button-area").style.display = "block";
