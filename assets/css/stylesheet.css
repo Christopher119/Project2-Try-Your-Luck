@@ -242,6 +242,7 @@ footer a {
 
     #intro-area {
         width: 50%;
+    }
 
     #start-button {
         width: 50%;
@@ -257,5 +258,4 @@ footer a {
         height: 60px;
         margin: 15px;
     }
-    
 }
