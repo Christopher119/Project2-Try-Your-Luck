@@ -62,13 +62,13 @@ I chose a starry night background as I felt it provided a similar feel to the li
 The header simply contains the title of the Webpage/Game.
 ![A preview of the header](assets/readme-images/header-preview.png)
 
-## Intro div
+## Intro Div
 The intro div acts as a welcoming splashscreen to the user.
 It offers a quick overview of how the game works.
 It has a button to start the game, at which point the div is hidden and the game divs are shown.
 ![A preview of the intro div](assets/readme-images/intro-div.png)
 
-## Button div 
+## Button Div 
 The button div contains two buttons: Roll x1 and ROll x10.
 Both buttons will execute JS code to pull a randomly selected reward or rewards and add them to the results div.
 The button div also holds three counters.
@@ -79,7 +79,7 @@ Once the user has used all of their rolls a dialog will display informing them a
 This will also disable the both buttons to prevent further attempts.
 ![A preview of the dialog that displays when a user has used all rolls](assets/readme-images/dialog-modal-preview.png)
 
-## Results div
+## Results Div
 This div is mostly empty at first, containing only a small header and a reset button.
 As the user pressed the buttons in the Button-div this div will populate with the random rolls they have received.
 The reset button will empty the div back to its default state and also reset the three counters in the button div.
