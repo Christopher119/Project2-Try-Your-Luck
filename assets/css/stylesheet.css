@@ -41,7 +41,7 @@ h1, h2, h3, h4, p {
 /*Div to act as a splashscreen containing rules for the game
 the rest of the game is hidden until user starts*/
 #intro-area {
-    width: 60%;
+    width: 80%;
     margin: 10px auto;
     padding: 10px;
     border-radius: 15px;
@@ -220,6 +220,14 @@ footer a {
     .rare-result {
         box-shadow: rgba(128, 0, 128, 0.8) 0 0 7.5px 7.5px;
     }
+
+    #intro-area {
+        width: 70%;
+    }
+
+    #start-button {
+        width: 60%;
+    }
 }
 
 /*Laptops*/
@@ -230,6 +238,13 @@ footer a {
         width: 55px;
         height: 55px;
         margin: 10px;
+    }
+
+    #intro-area {
+        width: 50%;
+
+    #start-button {
+        width: 50%;
     }
 }
 
