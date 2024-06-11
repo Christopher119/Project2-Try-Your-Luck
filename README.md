@@ -4,7 +4,7 @@ ___
 
 ![Devices showing the responsive nature of the site](assets/readme-images/amiresponsive.png)
 
-This website is a simple lottery styled game. This site is targeted towards people who enjoy games of chance such as slots or gambling.
+This website is a simple lottery styled game. This site is targeted towards people who enjoy games of chance such as slots or gambling and to appeal to users who may enjoy card pack openings such as with trading Card or Sports games.
 
 # Five UX Planes
 
@@ -119,18 +119,20 @@ This page could have a display of all rolls shadowed out, which then get unshade
 # Testing
 
 There were multiple stages of testing as the project developed.<br>
-The first tests were simply to do with HTML and CSS styling and positioning to ensure a clean look on all devices.<br>
-JavaScript was tested repeatedly as it progressed.<br>
-Testing if divs were created when buttons were pressed.<br>
-Testing if divs were added to the correct div as children.<br>
-Testing if multiple divs could be added.<br>
-Testing if the counters for rolls and guarantees correctly decreased and reset per roll.<br>
-Testing if the Reset button would correctly reset the game to the beginning state.<br>
-Testing the calculations for luck by running through the 100 rolls multiple times.<br>
-Testing if checks for Rare and Ultra Rare guarantees were correctly functioning.<br>
-Testing if images loaded into divs correctly.<br>
-Testing if images loaded randomly correctly.<br>
-Testing if images could be seperated by "Rarity".  <br>
+
+|TEST|PROCESS|EXPECTATION|RESULT|
+|--|--|--|--|
+| HTML & CSS Positioning | Webpage resized to various devices | Elements would correctly adjust | SUCCESS |
+| Roll Button Functionality | Button clicks | Elements would be created on click | SUCCESS |
+| Reward Div Creation | After Button clicks | Element would be added to correct area as children | SUCCESS |
+| Multiple Reward Div Creation | After Button clicks | Element would be added continually | SUCCESS |
+| Roll Counter Testing | After Button clicks | All counters would correctly decrease or reset as required | SUCCESS |
+| Reset Button Functionality | Button click | Reward Area would return to default state. Counters would reset. | SUCCESS  |
+| Luck Calculation | Repeated runs of the Game | Rare and Ultra Rare drops would be rewarded as expected | SUCCESS  |
+| Guarantee Confirmation | Repeated runs of the Game | Rare and Ultra Rare drops would be rewarded when guaranteed | SUCCESS  |
+| Reward Image Confirmation | Repeated runs of the Game | Images would load into the reward divs correctly | SUCCESS  |
+| Reward Image Randomisation | Repeated runs of the Game | Images would load randomly | SUCCESS  |
+| Reward Image Rarity | Repeated runs of the Game | Images would load according to the corresponding rarity of the reward | SUCCESS  |
 
 # Validating
 
@@ -138,8 +140,6 @@ Testing if images could be seperated by "Rarity".  <br>
 
 I have run the html through the validator and it is fully valid.<br>
 ![W3C HTML Validator Results](assets/readme-images/w3c-html-validation-result.png)
-
-  
 
 ## CSS
 
@@ -151,16 +151,22 @@ I have run the css stylesheet through the validator and it is fully valid.<br>
 I have run the JavaScript through the JSHint validation and it is fully valid.<br>
 ![JSHint Validator Results](assets/readme-images/jshint-results.png)
 
+## Lighthouse
+
+I have tested the webpages performance with Lighthouse.<br>
+![Lighthouse Results](assets/readme-images/lighthouse-result.png)
+
 # Bugs
 
 Any and all bugs have been found and removed.<br>
 Notable bugs included:<br>
 1. A calculation error that would produce an unexpected result and cause rolls to fail.<br>
 This was an error with my if/else statements in the caclulateLuck function, a simple fix.<br>
-![Unexpected Result Error](assets/readme-images/error-unexpected-roll-result.png)<br>
+![Unexpected Result Error](assets/readme-images/error-unexpected-roll-result.png)
 
 2. Counters going into negative values. This could occur for both the overall counter and the rare counter.<br>
-Simply required a check in the code to prevent rolling past 0.
+Simply required a check in the code to prevent rolling past 0. This would sometimes happen if Ultra Rares dropped when a Rare was guaranteed as Ultras take priority.
+![Example of an Ultra Rare dropping on the 10th roll after a Rare, and that the fix is working](assets/readme-images/guarantee-catch-example.png)<br>
 
 3. Errors with divs not correctly loading the reward image resulting in blank or coloured squares.<br>
 This was an error with the pathing url provided.
@@ -172,15 +178,13 @@ This was solved by separating the containing array into a blank array that was t
 # Deployment
 
 The site has been deployed to GitHub pages. In order to deploy the site:<br>
-<br>
-I navigated to the Settings tab of the Repository<br>
-I navigated to the Pages menu.<br>
-In the Source dropdown options I selected main for the branch option.<br>
-I left the /root option as the default option.<br>
-I saved my changes.<br>
-<br>
+1. I navigated to the `Settings` tab of the Repository.<br>
+2. I navigated to the `Pages` menu.<br>
+3. In the `Source` dropdown options I selected `main` for the branch option.<br>
+4. I left the `/root` option as the default option.<br>
+5. I saved my changes.<br>
+
 GitHub deployed my website, it was live a few minutes later.<br>
-<br>
 The live link can be found here - https://christopher119.github.io/Project2-Try-Your-Luck/
 
 # Credits
