@@ -13,10 +13,10 @@ document.addEventListener("DOMContentLoaded", function(){
 //function executed when the Roll x1 button is clicked.
 /**
  * The function will call the caclulateLuck() function.
- * Decrement the counters for rare and ultra rare guarantees
- * Check if the user has rols remaining and return a popup/disable buttons if they do not
- * Check for guarantees and return relevant rewards based on rarity received by calculateLuck()
- * Decrement the overall counter for rolls remaining
+ * Decrement the counters for rare and ultra rare guarantees.
+ * Check if the user has rols remaining and return a popup/disable buttons if they do not.
+ * Check for guarantees and return relevant rewards based on rarity received by calculateLuck().
+ * Decrement the overall counter for rolls remaining.
  */
 function rollOnce() {
 
