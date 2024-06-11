@@ -19,14 +19,19 @@ document.addEventListener("DOMContentLoaded", function(){
  * Decrement the overall counter for rolls remaining.
  */
 function rollOnce() {
-
+    //calculating the rarity of the result
     let result = calculateLuck();
+
+    //decrementing both rare and ultra guarantee counters
     decrementHistory('rare');
     decrementHistory('ultra');
 
+    //checking if user has rolls remaining
     if(checkHistory('full') <= 0){
         noRollsRemaining();
-    }else if(checkHistory('ultra') == 0 || result == "Ultra Rare"){
+    }//checking the users ultra guarantee count or if the result was an ultra rare
+    else if(checkHistory('ultra') == 0 || result == "Ultra Rare"){
+        //calling function to display relevant reward for ultra rolls
         displayResults('ultra');
         //reset ultra history for logic
         resetGuarantee('ultra', 100);
@@ -35,16 +40,19 @@ function rollOnce() {
         if(checkHistory('rare') == 0){
             resetGuarantee('rare', 1);
         }
-    }else if(checkHistory('rare') == 0 || result == "Rare"){
+    }//checking the users rare guarantee count or if the result was a rare
+    else if(checkHistory('rare') == 0 || result == "Rare"){
+        //calling function to display relevant reward for rare rolls
         displayResults('rare');
         //reset rare history for logic
         resetGuarantee('rare', 10);
     }else if(result == "Normal"){
+        //calling function to display relevant reward for normal rolls
         displayResults('normal');
     }else{
         alert(`error, unknown result: ${result}`);
     }
-
+    //decrementing the overall rolls remaining
     decrementHistory('full');
 }
 
@@ -56,13 +64,15 @@ function rollOnce() {
  * And will also disable the x10 button.
  */
 function rollTen() {
+    //checking if the user has any rolls remaining
     if(checkHistory('full') <= 0){
         noRollsRemaining();
-    } else if(checkHistory('full') < 10){
+    }//checking if the user has less than 10 rolls remaining 
+    else if(checkHistory('full') < 10){
         //disabling x10 button if 10 rolls are no longer possible
         document.getElementById("pull-10-button").disabled = true;
         
-        //using dialog boxes to create modals instead of alerts
+        //using dialog boxes to create modals instead of alerts, found here https://blog.webdevsimplified.com/2023-04/html-dialog/
         let popup = document.getElementById("popup");
         popup.showModal();
         popup.innerHTML = `<form method="dialog">
@@ -136,6 +146,7 @@ function displayResults(rollResult) {
  */
 function addResultPic(rollResult){
     //array containing various images for the roll rewards
+    //concept found here https://stackoverflow.com/questions/64993980/adding-a-random-background-image-in-css-using-javascript
     let possibleRolls = [];
 
     //populating the array with "normal" roll result images
@@ -213,7 +224,7 @@ function resetGuarantee(historyType, amount){
  * Additionally it will disable both roll buttons to prevent further attempts.
  */
 function noRollsRemaining(){
-    //using dialog boxes to create modals instead of alerts
+    //using dialog boxes to create modals instead of alerts, found here https://blog.webdevsimplified.com/2023-04/html-dialog/
     let popup = document.getElementById("popup");
     popup.showModal();
     popup.innerHTML = `<form method="dialog">
