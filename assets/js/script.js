@@ -138,78 +138,51 @@ function displayResults(rollResult) {
 
 //A function to add a random image to various rarities of results
 /**
- * This function contains an empty array. Depending on the rarity supplied to it
- * by the displayResults() function the array will populate with various images to
- * correspond to that rarity.
- * The array will then be randomly run through to select an image which is returned
- * so that the displayResults() function can add it to the created result.
+ * This functions generates a number of random numbers to determine what to display.
+ * First generates a 0 or 1 to determine if the image will be a ring or a sword.
+ * Second it takes in the rarity supplied by displayResults when it is called.
+ * Third it generates a random number based on the number of ring or sword images for that rarity.
+ * It then returns a randomly selected image using these variables.
  */
 function addResultPic(rollResult){
-    //array containing various images for the roll rewards
-    //concept found here https://stackoverflow.com/questions/64993980/adding-a-random-background-image-in-css-using-javascript
-    let possibleRolls = [];
 
-    //populating the array with "normal" roll result images
-    if(rollResult == "normal"){
-        possibleRolls = [`url("assets/images/roll-results/${rollResult}/${rollResult}-ring-1.webp") center center/cover`,
-            `url("assets/images/roll-results/${rollResult}/${rollResult}-ring-2.webp") center center/cover`,
-            `url("assets/images/roll-results/${rollResult}/${rollResult}-ring-3.webp") center center/cover`,
-            `url("assets/images/roll-results/${rollResult}/${rollResult}-ring-4.webp") center center/cover`,
-            `url("assets/images/roll-results/${rollResult}/${rollResult}-ring-5.webp") center center/cover`,
-            `url("assets/images/roll-results/${rollResult}/${rollResult}-ring-6.webp") center center/cover`,
-            `url("assets/images/roll-results/${rollResult}/${rollResult}-ring-7.webp") center center/cover`,
-            `url("assets/images/roll-results/${rollResult}/${rollResult}-ring-8.webp") center center/cover`,
-            `url("assets/images/roll-results/${rollResult}/${rollResult}-sword-1.webp") center center/cover`,
-            `url("assets/images/roll-results/${rollResult}/${rollResult}-sword-2.webp") center center/cover`,
-            `url("assets/images/roll-results/${rollResult}/${rollResult}-sword-3.webp") center center/cover`,
-            `url("assets/images/roll-results/${rollResult}/${rollResult}-sword-4.webp") center center/cover`,
-            `url("assets/images/roll-results/${rollResult}/${rollResult}-sword-5.webp") center center/cover`,
-            `url("assets/images/roll-results/${rollResult}/${rollResult}-sword-6.webp") center center/cover`,
-            `url("assets/images/roll-results/${rollResult}/${rollResult}-sword-7.webp") center center/cover`,
-            `url("assets/images/roll-results/${rollResult}/${rollResult}-sword-8.webp") center center/cover`,
-            `url("assets/images/roll-results/${rollResult}/${rollResult}-sword-9.webp") center center/cover`,
-            `url("assets/images/roll-results/${rollResult}/${rollResult}-sword-10.webp") center center/cover`,
-            `url("assets/images/roll-results/${rollResult}/${rollResult}-sword-11.webp") center center/cover`,
-            `url("assets/images/roll-results/${rollResult}/${rollResult}-sword-12.webp") center center/cover`,
-            `url("assets/images/roll-results/${rollResult}/${rollResult}-sword-13.webp") center center/cover`,
-            `url("assets/images/roll-results/${rollResult}/${rollResult}-sword-14.webp") center center/cover`,
-        ];
-    }//populating the array with "rare" roll result images
-    else if(rollResult == "rare"){
-        possibleRolls = [`url("assets/images/roll-results/${rollResult}/${rollResult}-ring-1.webp") center center/cover`,
-        `url("assets/images/roll-results/${rollResult}/${rollResult}-ring-2.webp") center center/cover`,
-        `url("assets/images/roll-results/${rollResult}/${rollResult}-ring-3.webp") center center/cover`,
-        `url("assets/images/roll-results/${rollResult}/${rollResult}-ring-4.webp") center center/cover`,
-        `url("assets/images/roll-results/${rollResult}/${rollResult}-ring-5.webp") center center/cover`,
-        `url("assets/images/roll-results/${rollResult}/${rollResult}-ring-6.webp") center center/cover`,
-        `url("assets/images/roll-results/${rollResult}/${rollResult}-sword-1.webp") center center/cover`,
-        `url("assets/images/roll-results/${rollResult}/${rollResult}-sword-2.webp") center center/cover`,
-        `url("assets/images/roll-results/${rollResult}/${rollResult}-sword-3.webp") center center/cover`,
-        `url("assets/images/roll-results/${rollResult}/${rollResult}-sword-4.webp") center center/cover`,
-        `url("assets/images/roll-results/${rollResult}/${rollResult}-sword-5.webp") center center/cover`,
-        `url("assets/images/roll-results/${rollResult}/${rollResult}-sword-6.webp") center center/cover`,
-        `url("assets/images/roll-results/${rollResult}/${rollResult}-sword-7.webp") center center/cover`,
-        `url("assets/images/roll-results/${rollResult}/${rollResult}-sword-8.webp") center center/cover`,
-        `url("assets/images/roll-results/${rollResult}/${rollResult}-sword-9.webp") center center/cover`,
-        ];
-    }//populating the array with "ultra" roll result images
-    else if(rollResult == "ultra"){
-        possibleRolls = [`url("assets/images/roll-results/${rollResult}/${rollResult}-ring-1.webp") center center/cover`,
-        `url("assets/images/roll-results/${rollResult}/${rollResult}-ring-2.webp") center center/cover`,
-        `url("assets/images/roll-results/${rollResult}/${rollResult}-ring-3.webp") center center/cover`,
-        `url("assets/images/roll-results/${rollResult}/${rollResult}-sword-1.webp") center center/cover`,
-        `url("assets/images/roll-results/${rollResult}/${rollResult}-sword-2.webp") center center/cover`,
-        `url("assets/images/roll-results/${rollResult}/${rollResult}-sword-3.webp") center center/cover`,
-        ];
-    }//catch in the event of a roll error
-    else{
-        throw(`Error: Invalid roll result ${rollResult}`);
+    //generating a random number 0 or 1
+    let itemPick = Math.floor(Math.random() * 2);
+    //variables to hold item and its random number
+    let item;
+    let randomItem;
+
+    //assigning a ring or sword based on 0 or 1 result
+    if(itemPick == 0){
+        item = 'ring';
+    } else {
+        item = 'sword';
     }
 
-    //picking a random image
-    let result = Math.floor(Math.random() * possibleRolls.length);
-    //returning that random image
-    return possibleRolls[result];
+    //taking in rarity supplied by displayResults() to determine correct image rarity
+    if(rollResult == "normal" && item == 'ring'){
+        //generating a random number between 1 and 8 to match number of normal ring images there are
+        randomItem = Math.floor(Math.random() * 8)+1;
+    } else if (rollResult == "normal" && item == 'sword'){
+        //generating a random number between 1 and 14 to match number of normal sword images there are 
+        randomItem = Math.floor(Math.random() * 14)+1;
+    } else if(rollResult == "rare" && item == 'ring'){
+        //generating a random number between 1 and 6 to match number of rare ring images there are
+        randomItem = Math.floor(Math.random() * 6)+1;
+    } else if (rollResult == "rare" && item == 'sword'){
+        //generating a random number between 1 and 9 to match number of rare sword images there are 
+        randomItem = Math.floor(Math.random() * 9)+1;
+    } else if(rollResult == "ultra" && item == 'ring'){
+        //generating a random number between 1 and 3 to match number of ultra ring images there are
+        randomItem = Math.floor(Math.random() * 3)+1;
+    } else if (rollResult == "ultra" && item == 'sword'){
+        //generating a random number between 1 and 3 to match number of ultra sword images there are 
+        randomItem = Math.floor(Math.random() * 3)+1;
+    } else{
+        throw (`Error: Invalid result. Roll Result: ${rollResult}, Item Pick: ${itemPick}, Item: ${item}, Random Number: ${randomItem}`);
+    }
+    //returning the randomised image url
+    return `url("assets/images/roll-results/${rollResult}/${rollResult}-${item}-${randomItem}.webp") center center/cover`;
 }
 
 //function to reset rare or ultra guarantee amounts after rolling one
