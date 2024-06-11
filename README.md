@@ -194,9 +194,6 @@ The live link can be found here - https://christopher119.github.io/Project2-Try-
 The glow effect used for the rewards was found here:<br>
 https://wpshout.com/snippets/css-glow-effect/<br>
 <br>
-Using an array to store all the reward images and then randomly selecting one was adapted from here:<br>
-https://stackoverflow.com/questions/64993980/adding-a-random-background-image-in-css-using-javascript<br>
-<br>
 Use of a dialog box as a modal was adapted from here:<br>
 https://blog.webdevsimplified.com/2023-04/html-dialog/<br>
 

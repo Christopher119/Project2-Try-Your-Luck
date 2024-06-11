@@ -139,7 +139,7 @@ function displayResults(rollResult) {
 //A function to add a random image to various rarities of results
 /**
  * This functions generates a number of random numbers to determine what to display.
- * First generates a 0 or 1 to determine if the image will be a ring or a sword.
+ * First it generates a 0 or 1 to determine if the image will be a ring or a sword.
  * Second it takes in the rarity supplied by displayResults when it is called.
  * Third it generates a random number based on the number of ring or sword images for that rarity.
  * It then returns a randomly selected image using these variables.
