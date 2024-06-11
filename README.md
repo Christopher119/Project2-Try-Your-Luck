@@ -196,10 +196,9 @@ https://wpshout.com/snippets/css-glow-effect/<br>
 <br>
 Use of a dialog box as a modal was adapted from here:<br>
 https://blog.webdevsimplified.com/2023-04/html-dialog/<br>
-
+<br>
 Initially I used an array to store all the reward images and then randomly selecting one. This has since been refactored and changed but the initial concept was adapted from here:<br>
 https://stackoverflow.com/questions/64993980/adding-a-random-background-image-in-css-using-javascript<br>
-<br>
 
 ## Media
 
