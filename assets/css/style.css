@@ -96,9 +96,9 @@ the rest of the game is hidden until user starts*/
 /*Buttons used to roll in the game*/
 #pull-1-button,
 #pull-10-button {
-    width: 40%;
-    padding: 2rem;
-    margin: 10px;
+    width: 70%;
+    padding: 1rem;
+    margin: 5px;
     font-size: 1.5rem;
     border-radius: 10px;
     border: 2px solid #000000;
