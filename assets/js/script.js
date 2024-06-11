@@ -50,7 +50,7 @@ function rollOnce() {
 
 //function that calls the rollOnce() function 10 times
 /**
- * This function calls the rollOnce() function 10 times
+ * This function calls the rollOnce() function 10 times.
  * It also performs checks based on number of rolls remaining
  * If the user has less than ten it will display a popup informing them.
  * And will also disable the x10 button.
@@ -59,6 +59,9 @@ function rollTen() {
     if(checkHistory('full') <= 0){
         noRollsRemaining();
     } else if(checkHistory('full') < 10){
+        //disabling x10 button if 10 rolls are no longer possible
+        document.getElementById("pull-10-button").disabled = true;
+        
         //using dialog boxes to create modals instead of alerts
         let popup = document.getElementById("popup");
         popup.showModal();
@@ -69,8 +72,6 @@ function rollTen() {
             <button type="submit" id="popup-button">Okay</button>
             <br>
         </form>`;
-        //disabling x10 button if 10 rolls are no longer possible
-        document.getElementById("pull-10-button").disabled = true;
     } else{
         for(let i = 0; i < 10; i++){
             rollOnce();
@@ -82,9 +83,9 @@ function rollTen() {
 /**
  * This function simply generates a random number
  * between 1 and 200 and assigns a rarity to the
- * reward based upon the number
- * it will then return that rarity as a string for
- * other functions to use
+ * reward based upon the number.
+ * It will then return that rarity as a string for
+ * other functions to use.
  */
 function calculateLuck() {
     //random number between 1 and 200
